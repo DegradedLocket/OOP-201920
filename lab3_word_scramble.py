@@ -19,7 +19,9 @@ class WordScramble:
         # particularly good to use is to switch the first two
         # and the last two
         # this only makes sense if you have a world that is longer than 3
-
+        temp = self.user_input[0]
+        self.user_input[-1] = self.user_input
+        self.user_input[-1] = temp
 
         # now try to scramble one sentence
         # do just words first, then you can move on to work on

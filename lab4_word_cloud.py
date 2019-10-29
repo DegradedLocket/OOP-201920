@@ -4,6 +4,9 @@
 # date: 10-10-2019
 # purpose: Lab 4
 
+import string
+
+
 class WordCloud:
 
     # initialises everything
@@ -12,6 +15,7 @@ class WordCloud:
         self.my_dict = self.create_dict()
         # you might like to run the following line only
         # if there wasn't a problem creating the dictionary
+
         self.create_html(self.my_dict)
 
     # this function creates the actual html file
@@ -32,6 +36,9 @@ class WordCloud:
         # your code goes here!
         fo.write('<span style="font-size: 10px"> HELLO </span>')
 
+        for i in the_dict:
+            fo.write('<span style="font-size: ' + str((the_dict[i] * 10)) + 'px">' + i +'</span>')
+
         fo.write('</div>\
             </body>\
             </html>')
@@ -49,6 +56,14 @@ class WordCloud:
         my_dict = {}
         # your code goes here:
 
+        text = open("gettisburg.txt", "r")
+
+        for line in text:
+            word = line.split()
+
+            for i in word:
+                self.add_to_dict(i, my_dict)
+        print(my_dict)
         return my_dict
 
     # helper function that is called from
@@ -60,6 +75,10 @@ class WordCloud:
     # returns a dictionary
     def add_to_dict(self, word, the_dict):
         # your code goes here
+        if word not in the_dict:
+            the_dict[word] = 1
+        else:
+            the_dict[word] += 1
 
         return the_dict
 
