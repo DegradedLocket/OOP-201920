@@ -20,7 +20,7 @@ class WordCloud:
 
     # this function creates the actual html file
     # takes a dictionary as an argument
-    # it helps to multiply the key/occurance of word number with 10
+    # it helps to multiply the key/occurrence of word number with 10
     # in order to get a decent size output in the html
     def create_html(self, the_dict):
         fo = open("output.html", "w")
@@ -58,6 +58,7 @@ class WordCloud:
 
         text = open("gettisburg.txt", "r")
 
+
         for line in text:
             word = line.split()
 
@@ -71,7 +72,7 @@ class WordCloud:
     # receives a word and a dictionary
     # does the counting of the key we are at and adds 1
     # if this word already exists. Otherwise sets the
-    # word occurance counter to 1
+    # word occurrence counter to 1
     # returns a dictionary
     def add_to_dict(self, word, the_dict):
         # your code goes here
